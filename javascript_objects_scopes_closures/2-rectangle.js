@@ -5,7 +5,6 @@ class Rectangle {
         this.width = w;
         this.height = h;
       } else {
-        this.Rectangle = {}
         this.width = undefined;
         this.height = undefined;
       }
