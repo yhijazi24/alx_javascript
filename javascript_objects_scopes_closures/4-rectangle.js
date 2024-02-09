@@ -1,7 +1,7 @@
 class Rectangle {
     constructor(w, h) {
         if (w <= 0 || h <= 0 || !Number.isInteger(w) || !Number.isInteger(h)) {
-            // Create an empty object if width or height is not positive integer
+            
             return {};
         }
         this.width = w;
@@ -10,7 +10,8 @@ class Rectangle {
 
     print() {
         if (this.width === undefined || this.height === undefined) {
-            // Check if the object is empty
+         
+            
             return;
         }
         for (let i = 0; i < this.height; i++) {
@@ -20,7 +21,7 @@ class Rectangle {
 
     rotate() {
         if (this.width === undefined || this.height === undefined) {
-            // Check if the object is empty
+           
             return;
         }
         const temp = this.width;
@@ -30,7 +31,7 @@ class Rectangle {
 
     double() {
         if (this.width === undefined || this.height === undefined) {
-            // Check if the object is empty
+       
             return;
         }
         this.width *= 2;
