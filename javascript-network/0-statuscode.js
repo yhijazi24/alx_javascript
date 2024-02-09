@@ -1,6 +1,6 @@
 const request = require('request');
 
-const url = process.argv[2]; // Get the URL from the command line argument
+const url = process.argv[2]; 
 
 request(url, (error, response) => {
     if (error) {
