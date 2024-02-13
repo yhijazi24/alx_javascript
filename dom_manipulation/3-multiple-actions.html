@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Creating and Removing Elements</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <button id="toggleButton">Click</button>
+    <script>
+        const myContainer = document.getElementById("container");
+        myContainer.textContent = "New paragraph";
+        document.body.appendChild(myContainer);
+
+        document.getElementById("toggleButton").addEventListener("click", function () {
+            if (myContainer.style.display === "none") {
+                myContainer.style.display = "block";
+            } else {
+                myContainer.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
