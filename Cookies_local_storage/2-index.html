@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cookies</title>
+    <style>
+        .container {
+            display: flex;
+            column-gap: .75rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Login to the website</h1>
+    <div class="container">
+        <div>
+
+            <input type="text" id="firstname" placeholder="First Name">
+        </div>
+        <div>
+
+            <input type="text" id="email" placeholder="Email">
+        </div>
+
+        <div>
+            <button id="loginButton" onclick="setCookies()">Log me in</button>
+
+        </div>
+    </div>
+    <div>
+        <h1>Cookies</h1>
+        <div>
+            <button id="showCookiesButton">Show the cookies</button>
+        </div>
+        <div id="cookies"></div>
+    </div>
+    <script>
+
+
+        function setCookies() {
+            const firstName = document.getElementById("firstname").value;
+            const email = document.getElementById("email").value;
+
+
+            const expireDate = new Date();
+            expireDate.setDate(expireDate.getDate() + 10);
+
+            document.cookie = `Firstname=${firstName}; expires=${expireDate.toUTCString()}; path=/`;
+            document.cookie += ` - Email=${email}; expires=${expireDate.toUTCString()}; path=/`;
+
+            console.log(document.cookie);
+        }
+
+        function showCookies() {
+            const cookiesParagraph = document.createElement("p");
+            cookiesParagraph.textContent = `Cookies: ${document.cookie}`;
+            document.body.appendChild(cookiesParagraph);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("loginButton").addEventListener("click", setCookies);
+            document.getElementById("showCookiesButton").addEventListener("click", showCookies);
+        });
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.trim().split('=');
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return '';
+        }
+    </script>
+</body>
+
+</html>
